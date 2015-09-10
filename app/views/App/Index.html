@@ -1,0 +1,33 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+
+<header class="hero-unit" style="background-color:#A9F16C">
+  <div class="container">
+    <div class="row">
+      <div class="hero-text">
+        <h2><a href="http://arxiv.org/pdf/1301.3781.pdf">word2vec model</a> should be trained on your own data!</h2>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="span2"></div>
+    <div class="span6">
+	<form method="post" action="{{url "app.HandleQuery"}}" enctype="multipart/form-data">
+                                <p>
+                                        <label for="query"><strong>Query:</strong></label>
+                                        <input type="text" name="query" id="query"/>
+                                </p>
+                                <input type="submit" value="submit" class="btn btn-large btn-success">
+                        </form>
+
+    </div>
+  </div>
+  <div class="row">
+	{{ .Query }}
+  </div>
+</div>
+
+{{template "footer.html" .}}
